@@ -3,17 +3,36 @@
 
 
 
+
+
+
+
+
 long double func(long double x) {
 
 	return x * x;
 
 }
 
+
+
+
+
+
+
+
 long double dd_func(long double x) {
 
 	return 2;
 
 }
+
+
+
+
+
+
+
 
 int main() {
 
@@ -39,7 +58,8 @@ int main() {
 			long double max_abs_dd_func = fabs(dd_func(lower_limit));
 
 			for (long long int i = 0; i < num_of_split; i++) {
-				integral += (func(lower_limit + i * step) + func(lower_limit + (i + 1) * step)) / 2;
+				integral += (func(lower_limit + i * step) + func(lower_limit + (i + 1) \
+					* step)) / 2;
 
 				if (fabs(dd_func(lower_limit + (i + 1) * step)) > max_abs_dd_func) {
 					max_abs_dd_func = fabs(dd_func(lower_limit + (i + 1) * step));
@@ -47,7 +67,8 @@ int main() {
 			}
 
 			integral *= step;
-			printf("The result is %.10Lf\nwith accuracy %.10Lf\n\n", integral, step * step * fabs(upper_limit - lower_limit) * max_abs_dd_func / 12);
+			printf("The result is %.10Lf\nwith accuracy %.10Lf\n\n", \
+				integral, step * step * fabs(upper_limit - lower_limit) * max_abs_dd_func / 12);
 					   			
 			printf("If you want to calculate integral with another parameters input 1, else input 0\n");
 			scanf_s("%d", &cont);
